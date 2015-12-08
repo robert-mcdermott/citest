@@ -13,7 +13,7 @@ ADD testsuite.py /root/
 ADD index.html /usr/share/nginx/html/
 
 RUN chmod 755 /root/testsuite.py
-#RUN /root/testsuite.py fail
+RUN /root/testsuite.py fail
 
 EXPOSE 80
 
