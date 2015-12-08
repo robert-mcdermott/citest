@@ -10,8 +10,11 @@ RUN apt-get -y -qq update && apt-get -y -qq install \
 	nginx \
 	python 
 
-ADD testsuite.py /root
+ADD testsuite.py /root/
+ADD index.html /usr/share/nginx/html/
 
-EXPOSE 7777 7788
+RUN /root/testsuite.py pass
 
-CMD ["bash"]
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
