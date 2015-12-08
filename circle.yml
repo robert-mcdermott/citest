@@ -11,4 +11,5 @@ dependencies:
 test:
   override:
     - docker run -d -p 8080:80 --name citest01 fredhutch/citest; sleep 10
-    - curl --retry 10 --retry-delay 5 -v http://localhost:8080
+    - sudo lxc-attach -n "$(docker inspect --format '{{.Id}}' citest01)" -- bash -c "/root/testsuite.py fail"
+    #- curl --retry 10 --retry-delay 5 -v http://localhost:8080
