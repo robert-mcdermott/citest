@@ -10,5 +10,4 @@ dependencies:
 
 test:
   override:
-    - docker run -d -p 8080:80 --name citest01 fredhutch/citest; sleep 10
-    - docker exec citest01 /root/testsuite.py pass
+    - docker run -d -p 8080:80 --name citest01 fredhutch/citest /root/testsuit.py pass
