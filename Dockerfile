@@ -5,7 +5,6 @@ MAINTAINER "Robert McDermott" robert.c.mcdermott@gmail.com
 
 # Update the system and install packages
 RUN apt-get -y -qq update && apt-get -y -qq install \
-	r-base=3.2.2* \
 	vim \
 	nginx \
 	python 
