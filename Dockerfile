@@ -12,7 +12,7 @@ RUN apt-get -y -qq update && apt-get -y -qq install \
 ADD testsuite.py /root/
 ADD index.html /usr/share/nginx/html/
 
-RUN /root/testsuite.py pass
+RUN chmod 755 /root/testsuite.py && /root/testsuite.py pass
 
 EXPOSE 80
 
