@@ -10,14 +10,20 @@ dependencies:
 
 test:
   override:
-    - docker run -d -p 8080:80 --name citest01 fredhutch/citest; sleep 10
-    - curl --retry 10 --retry-delay 5 -v http://localhost:8080
+    - docker run -d -p 80:80 --name citest01 fredhutch/citest; sleep 10
+    - curl --retry 10 --retry-delay 5 -v http://localhost:80
     - sudo lxc-attach -n "$(docker inspect --format '{{.Id}}' citest01)" -- bash -c "/root/testsuite.py pass"
 
 deployment:
-  hub: 
+  master: 
     branch: master
     commands:
       - docker tag fredhutch/citest fredhutch/citest:production
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       - docker push fredhutch/citest:production
+  develop:
+    branch: develop
+    commands:
+      - docker tag fredhutch/citest fredhutch/citest:develop
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push fredhutch/citest:develop
