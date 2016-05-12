@@ -1,6 +1,6 @@
 # citest
 test repo to test CI/CD solutions
 
-- test
-- test
-- test
+- one
+- two
+- three
