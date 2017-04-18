@@ -6,7 +6,7 @@ machine:
 dependencies:
   override:
     - docker version
-#    - docker build -t fredhutch/citest .
+    - docker build -t fredhutch/citest .
 
 test:
   override:
