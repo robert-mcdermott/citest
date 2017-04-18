@@ -3,9 +3,9 @@ machine:
   services:
     - docker
 
-#dependencies:
-#  override:
-#    - docker version
+dependencies:
+  override:
+    - docker version
 #    - docker build -t fredhutch/citest .
 
 test:
