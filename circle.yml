@@ -1,16 +1,17 @@
 
-machine:
-  services:
-    - docker
+#machine:
+#  services:
+#    - docker
 
-dependencies:
-  override:
-    - sudo docker version
-    - sudo docker build -t fredhutch/citest .
+#dependencies:
+#  override:
+#    - sudo docker version
+#    - sudo docker build -t fredhutch/citest .
 
 test:
   override:
     - sudo whoami
+    - hostname
     - pwd
 #    - docker run -d -p 80:80 --name citest01 fredhutch/citest; sleep 10
 #    - curl --retry 10 --retry-delay 5 -v http://localhost:80
