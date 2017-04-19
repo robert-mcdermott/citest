@@ -3,10 +3,10 @@
 #  services:
 #    - docker
 
-#dependencies:
-#  override:
-#    - sudo docker version
-#    - sudo docker build -t fredhutch/citest .
+dependencies:
+  override:
+    - sudo apt-get install -y docker.io
+    - sudo docker version
 
 test:
   override:
