@@ -5,7 +5,7 @@ services:
         image: nginx
 
         ports:
-          - "8000:8000"
+          - "8000:80"
 
         container_name: hicoriq-dev
 
