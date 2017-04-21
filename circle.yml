@@ -15,6 +15,7 @@ test:
     - sudo docker exec -ti "$(docker inspect --format '{{.Id}}' citest01)" bash -c "/root/testsuite.py fail"
     - sudo docker rm --force "$(docker inspect --format '{{.Id}}' citest01)"
     
+    
 
 #deployment:
 #  master: 
