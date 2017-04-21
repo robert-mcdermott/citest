@@ -5,7 +5,7 @@ machine:
 
 dependencies:
   override:
-    - sudo curl -L https://github.com/docker/compose/releases/download/1.12.0/docker-compose-`uname -s`-`uname -m` > /usr/bin/docker-compose
+    - sudo bash -c "curl -L https://github.com/docker/compose/releases/download/1.12.0/docker-compose-`uname -s`-`uname -m` > /usr/bin/docker-compose"
     - sudo chmod +x /usr/bin/docker-compose
     - sudo docker-compose up -d
     #- sudo docker version
