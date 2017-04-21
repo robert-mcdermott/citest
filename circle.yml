@@ -10,9 +10,9 @@ dependencies:
 
 test:
   override:
-    - sudo docker run -d -p 80:80 --name citest01 fredhutch/citest; sleep 10
-    - curl --retry 10 --retry-delay 5 -v http://localhost:80
-    - sudo lxc-attach -n "$(docker inspect --format '{{.Id}}' citest01)" -- bash -c "/root/testsuite.py pass"
+    - sudo docker run -d -p 8888:80 --name citest01 fredhutch/citest; sleep 10
+    - curl --retry 10 --retry-delay 5 -v http://localhost:8888
+    #- sudo docker exect -ti bash -c "/root/testsuite.py pass"
     
 
 #deployment:
