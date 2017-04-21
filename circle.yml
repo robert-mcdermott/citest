@@ -12,7 +12,7 @@ test:
   override:
     - sudo docker run -d -p 8888:80 --name citest01 fredhutch/citest; sleep 10
     - curl --retry 10 --retry-delay 6 -v http://172.31.30.61:8888
-    - sudo docker exec -ti "$(docker inspect --format '{{.Id}}' citest01)" bash -c "/root/testsuite.py fail"
+    - sudo docker exec -ti "$(docker inspect --format '{{.Id}}' citest01)" bash -c "/root/testsuite.py pass"
     - sudo docker rm --force "$(docker inspect --format '{{.Id}}' citest01)"
     
     
