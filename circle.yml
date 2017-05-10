@@ -20,6 +20,7 @@ test:
     - sudo netstat -anp |grep LISTEN
     - ifconfig
     - hostname
+    - docker info
     - curl http://127.0.0.1:80
     #- curl http://$(docker inspect --format '{{.NetworkSettings.IPAddress}}' circle-${CIRCLE_BRANCH}):80
     #- echo "curl http://$(docker inspect --format '{{.NetworkSettings.IPAddress}}' citest-${CIRCLE_BRANCH}):80"
