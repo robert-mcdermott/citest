@@ -11,27 +11,14 @@ dependencies:
     - bash -c "curl -L https://github.com/docker/compose/releases/download/1.12.0/docker-compose-`uname -s`-`uname -m` > docker-compose"
     - chmod +x docker-compose
     - ./docker-compose up -d --force-recreate
-    - printenv
-    #- sudo docker version
-    #- sudo docker build -t fredhutch/citest .
 
 test:
   override:
     - sleep 10; sudo ./docker-compose ps
-    - curl http://${BUILD_HOST}:8000
-    #- curl http://$(docker inspect --format '{{.NetworkSettings.IPAddress}}' circle-${CIRCLE_BRANCH}):80
-    #- echo "curl http://$(docker inspect --format '{{.NetworkSettings.IPAddress}}' citest-${CIRCLE_BRANCH}):80"
-    #- curl "http://$(docker inspect --format '{{.NetworkSettings.IPAddress}}' citest-${CIRCLE_BRANCH}):80"
-    #- docker inspect --format '{{.NetworkSettings.IPAddress}}' citest-${CIRCLE_BRANCH}
+    - curl --retry 10 --retry-delay 5 -v http://${BUILD_HOST}:8000
     - docker exec -ti citest-${CIRCLE_BRANCH} bash -c "/root/testsuite.py pass"
     - ./docker-compose stop
-    - ./docker-compose rm --force
-    #- sudo docker run -d -p 8889:80 --name citest02 fredhutch/citest; sleep 10
-    #- curl --retry 10 --retry-delay 5 -v http://172.31.30.61:8889
-    #- sudo docker exec -ti "$(docker inspect --format '{{.Id}}' citest02)" bash -c "/root/testsuite.py pass"
-    #- sudo docker rm --force "$(docker inspect --format '{{.Id}}' citest02)"
-    
-    
+    - ./docker-compose rm --force  
 
 #deployment:
 #  master: 
