@@ -17,7 +17,8 @@ test:
   override:
     - sleep 10; sudo ./docker-compose ps
     - docker ps
-    - curl http://127.0.0.1:8000
+    - sudo netstat -anp |grep LISTEN
+    - curl http://127.0.0.1:80
     #- curl http://$(docker inspect --format '{{.NetworkSettings.IPAddress}}' circle-${CIRCLE_BRANCH}):80
     #- echo "curl http://$(docker inspect --format '{{.NetworkSettings.IPAddress}}' citest-${CIRCLE_BRANCH}):80"
     #- curl "http://$(docker inspect --format '{{.NetworkSettings.IPAddress}}' citest-${CIRCLE_BRANCH}):80"
