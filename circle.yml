@@ -16,7 +16,7 @@ dependencies:
 test:
   override:
     - sleep 10; sudo ./docker-compose ps
-    - curl http://"$(docker inspect --format '{{.NetworkSettings.IPAddress}}' citest-${CIRCLE_BRANCH})":80
+    - curl http://$(docker inspect --format '{{.NetworkSettings.IPAddress}}' circle-${CIRCLE_BRANCH}):80
     - docker exec -ti citest-${CIRCLE_BRANCH} bash -c "/root/testsuite.py pass"
     - ./docker-compose stop
     - ./docker-compose rm --force
