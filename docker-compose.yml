@@ -1,13 +1,16 @@
 version: '2'
 
 services:
-    hicoriq:
-        image: nginx
+    citest:
+        build:
+            context: .
+
+        image: fredhutch/citest:dev
 
         ports:
           - "8000:80"
 
-        container_name: hicoriq-dev
+        container_name: citest-dev
 
         privileged: false
         restart: always
