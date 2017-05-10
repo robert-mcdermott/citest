@@ -5,12 +5,12 @@ services:
         build:
             context: .
 
-        image: fredhutch/citest:${CIRCLE_BRANCH}
+        image: fredhutch/citest:dev
 
         ports:
           - "8000:80"
 
-        container_name: citest-${CIRCLE_BRANCH}
+        container_name: citest-dev
 
         privileged: false
         restart: always
