@@ -3,7 +3,7 @@ machine:
   services:
     - docker
   environment:
-    - BUILD_HOST: "circle-build01.fhcrc.org"
+    BUILD_HOST: circle-build01.fhcrc.org
 
 dependencies:
   override:
