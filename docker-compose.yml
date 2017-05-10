@@ -5,12 +5,12 @@ services:
         build:
             context: .
 
-        image: fredhutch/citest:dev
+        image: fredhutch/citest:master
 
         ports:
           - "8000:80"
 
-        container_name: citest-dev
+        container_name: citest-master
 
         privileged: false
         restart: always
