@@ -16,7 +16,7 @@ test:
   override:
     - sleep 10; sudo ./docker-compose ps
     - curl --retry 10 --retry-delay 5 -v http://${BUILD_HOST}:8000
-    - docker exec -ti citest-${CIRCLE_BRANCH} bash -c "/root/testsuite.py fail"
+    - docker exec -ti citest-${CIRCLE_BRANCH} bash -c "/root/testsuite.py pass"
     - ./docker-compose stop
     - ./docker-compose rm --force
 
