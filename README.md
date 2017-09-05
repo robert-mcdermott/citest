@@ -8,3 +8,4 @@ test repo to test CI/CD solutions
 - five
 - six
 - seven
+- eight
