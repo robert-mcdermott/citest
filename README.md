@@ -9,3 +9,4 @@ test repo to test CI/CD solutions
 - six
 - seven
 - eight
+- nine
