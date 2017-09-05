@@ -7,3 +7,4 @@ test repo to test CI/CD solutions
 - four
 - five
 - six
+- seven
